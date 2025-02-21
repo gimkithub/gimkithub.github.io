@@ -1,0 +1,97 @@
+<!--
+██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
+██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
+██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   
+██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   
+██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   
+██╗  ██╗██╗   ██╗██████╗ 
+██║  ██║██║   ██║██╔══██╗
+███████║██║   ██║██████╔╝
+██╔══██║██║   ██║██╔══██╗
+██║  ██║╚██████╔╝██████╔╝
+╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+-->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+	<head>
+		<title>Project-Hub V2 | Games</title>
+		<link rel="icon" href="favicon.png" />
+		<link rel="apple-touch-icon" href="favicon.png" />
+
+		<meta charset="UTF-8" />
+		<meta name="language" content="en" />
+		<meta name="robots" content="index,nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="page_styles/main.css" />
+		<link rel="stylesheet" href="page_styles/table.css" />
+		<link rel="stylesheet" href="page_styles/animate.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css" />
+		<script src="https://kit.fontawesome.com/4139823eac.js" crossorigin="anonymous"></script>
+
+        <script src="scripts/gtag.js"></script> <!--google stuff-->
+		<script src="elements/navbar.js"></script>
+		<script src="elements/footer.js"></script>
+		<script src="scripts/panic.js"></script>
+		<script src="scripts/theme.js"></script>
+		<script src="scripts/table.js"></script>
+
+        <style>
+            /*
+            .filterBar {
+                width: 100vw;
+                padding: 0 10vh;
+                margin: 1.5vh 0;
+
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .buttons {
+                width: 60%;
+
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .filterBar button {
+                width: 100%;
+                padding: 1.5vh;
+                margin-right: 2vh;
+
+                font-size: 1em;
+            }
+
+            #search {
+                float: right;
+                width: 40%;
+                padding: 1.5vh;
+
+                background-color: #eee;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border: none;
+                border-radius: 1.5vh;
+
+                color: #4f677d;
+                font-size: 1em;
+            }
+            */
+        </style>
+	</head>
+	<body onload="addGames()">
+        <!-- WIP
+		<div class="filterBar">
+            <div class="buttons">
+                <button class="white-btn">🔥 Hot Games</button>
+                <button class="white-btn">🍕 Papa's Games</button>
+			    <button class="white-btn">🏫 Riddle School</button>
+			    <button class="white-btn">Test</button>
+            </div>
+
+			<input type="text" id="search" placeholder="Search Games..." />
+		</div>
+        -->
+		<div id="table"></div>
+	</body>
+</html>
