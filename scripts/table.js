@@ -1,5 +1,5 @@
 // ty to a random github user for some of the code on this one
-// in case yall cant tell, my ass is NOT fluent in JS
+// (sorry i forgot the user)
 const cdn = 'https://iamchristians.github.io/assets/';
 async function addRandomGames() {
 	try {
@@ -19,9 +19,14 @@ async function addRandomGames() {
                 <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
                 <h2>${game.gameName}</h2>
             `;
+            
 
 			tab.addEventListener('click', () => {
-				localStorage.setItem('srcGame', `${cdn}${game.gameIndex}`);
+				if (game.romName != null) {
+                    localStorage.setItem('srcGame', `${cdn}${game.gameIndex}#${game.romName}`);
+                } else {
+                    localStorage.setItem('srcGame', `${cdn}${game.gameIndex}`);
+                }
 				window.location.href = 'player.html';
 			});
 
@@ -45,6 +50,7 @@ async function addGames() {
                 <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
                 <h2>${game.gameName}</h2>
             `;
+
 			/*
 			let popular = '${game.popular}';
 			if (popular == 'true') {
@@ -62,7 +68,11 @@ async function addGames() {
             */
 
 			tab.addEventListener('click', () => {
-				localStorage.setItem('srcGame', `${cdn}${game.gameIndex}`);
+                if (game.romName != null) {
+                    localStorage.setItem('srcGame', `${cdn}${game.gameIndex}#${game.romName}`);
+                } else {
+                    localStorage.setItem('srcGame', `${cdn}${game.gameIndex}`);
+                }
 				window.open('player.html', '_blank');
 			});
 
