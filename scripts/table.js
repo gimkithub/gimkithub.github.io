@@ -47,7 +47,7 @@ async function addGames() {
 
 			tab.className = 'table-tab';
 			tab.innerHTML = `
-                <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
+                <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.webp" loading="lazy" onerror="this.src='img/placeholder.png'">
                 <h2>${game.gameName}</h2>
             `;
 
