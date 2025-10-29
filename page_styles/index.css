@@ -66,11 +66,6 @@
 	color: var(--selection-text);
 }
 
-.hero-text a:hover i {
-	color: var(--blue-color-selected);
-	transform: translateX(0.5vh);
-}
-
 .hero-text a:hover span {
 	background-color: var(--blue-color-selected);
 }

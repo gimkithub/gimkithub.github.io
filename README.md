@@ -8,9 +8,9 @@
 
 <p align="center">
     <a href="https://opensource.org/licenses/"><img src="https://img.shields.io/badge/License-GPL%20v3-yellow.svg?style=for-the-badge&logo=appveyor"></a>
-    <a href="https://github.com/IamChristian/v2/network/members"><img src="https://img.shields.io/github/forks/IamChristian/v2?style=for-the-badge&logo=github"></a>
-    <img src="https://img.shields.io/github/last-commit/IamChristian/v2?logo=git&style=for-the-badge">
-    <img src="https://img.shields.io/maintenance/yes/2024?style=for-the-badge">
+    <a href="https://github.com/IamChristian/v2/network/members"><img src="https://img.shields.io/github/forks/IamChristianS/v2?style=for-the-badge&logo=github"></a>
+    <img src="https://img.shields.io/github/last-commit/IamChristianS/v2?logo=git&style=for-the-badge">
+    <img src="https://img.shields.io/maintenance/yes/2025?style=for-the-badge">
 </p>
 
 # Features
@@ -20,7 +20,6 @@
 -   Multiple Emulators
 -   Unblocked Games
 -   Tab Cloaking
--   Panic Button
 -   Open-Source
 
 # Screenshots 📷
@@ -34,17 +33,6 @@
     <img src="img/readme/slope.png" alt="Slope" width="300">
 </div>
 
-# Roadmap
-
-- Fix CraftMine
-- Fix Friday Night Funkin'
-- Fix FNAF 1/4
-- Replace Dune
-- Replace Flappy Bird
-- Add FNAF 2/3
-- Add WAFlash
-- Add NDS Emulator
-- Add Proxy
 
 # Contributing
 

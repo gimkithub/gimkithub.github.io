@@ -16,7 +16,7 @@ async function addRandomGames() {
 			const tab = document.createElement('div');
 			tab.className = 'random-game';
 			tab.innerHTML = `
-                <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
+                <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.webp" loading="lazy" onerror="this.src='img/placeholder.png'">
                 <h2>${game.gameName}</h2>
             `;
             
@@ -51,21 +51,12 @@ async function addGames() {
                 <h2>${game.gameName}</h2>
             `;
 
-			/*
-			let popular = '${game.popular}';
-			if (popular == 'true') {
-				tab.innerHTML = `
-                    <span>HOT</span>
-                    <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
-                    <h2>${game.gameName}</h2>
-                `;
-			} else {
-				tab.innerHTML = `
-                    <img src="${cdn}img/games/${game.gameName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}.png" loading="lazy" onerror="this.src='img/placeholder.png'">
-                    <h2>${game.gameName}</h2>
-                `;
+
+			let popular = game.popular;
+			if (popular == true) {
+				tab.prepend() = `<span>HOT</span>`;
 			}
-            */
+
 
 			tab.addEventListener('click', () => {
                 if (game.romName != null) {
