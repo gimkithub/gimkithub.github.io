@@ -51,10 +51,10 @@ h2::selection {
 }
 
 .table-tab span {
-	position: absolute;
-	transform: translate(65px, -25px);
+    position: absolute;
+    transform: translate(50%, -25px);
 
-	background-color: #f10;
+	background-color: #E10;
 	border-radius: 1vh;
 	padding: 0.5vh 1vh;
 
