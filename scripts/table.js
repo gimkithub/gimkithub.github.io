@@ -1,6 +1,6 @@
 // ty to a random github user for some of the code on this one
 // (sorry i forgot the user)
-const cdn = "https://cdn.jsdelivr.net/gh/IamChristianS/assets@latest/";
+const cdn = "https://iamchristians.github.io/assets/";
 async function addRandomGames() {
 	try {
 		const games = await (await fetch(cdn + "list_games.json")).json();
