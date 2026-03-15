@@ -17,13 +17,6 @@ const FEATURED_REVIEW = [
 // Global
 let games = [];
 
-(async function init() {
-	games = await fetchGames();
-
-	initGameCounter();
-	initDiscover();
-})();
-
 // Reviews
 (function initReviews() {
 	const scroller = document.getElementById("reviews-scroller");
@@ -92,3 +85,11 @@ function initDiscover() {
 	grid.innerHTML = "";
 	randomGames.forEach((game) => grid.appendChild(buildGameCard(game)));
 }
+
+// Initialize
+(async function init() {
+	games = await fetchGames();
+
+	initGameCounter();
+	initDiscover();
+})();

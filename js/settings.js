@@ -124,7 +124,7 @@ function changeTab(title, favicon_url) {
 // Create Persistent Keys
 function createToggle(toggleId, cookieName, onChange) {
 	const toggle = document.getElementById(toggleId);
-	toggle.checked = localStorage.getItem(cookieName) === "true";
+	toggle.checked = localStorage.getItem(cookieName) == "true";
 
 	toggle.addEventListener("change", () => {
 		localStorage.setItem(cookieName, toggle.checked);

@@ -1,16 +1,12 @@
 // First-Time Users
 (function autoCookies() {
-	if (localStorage.getItem("panic-toggle") == null) {
-		localStorage.setItem("panic-toggle", "true");
-	}
+    function setCookie(cookieName, property) {
+        if (localStorage.getItem(cookieName) == null) localStorage.setItem(cookieName, property || "true");
+    }
 
-	if (localStorage.getItem("show-banners") == null) {
-		localStorage.setItem("show-banners", "true");
-	}
-
-	if (localStorage.getItem("theme") == null) {
-		localStorage.setItem("theme", "dark");
-	}
+    setCookie("panic-toggle");
+    setCookie("show-banners");
+    setCookie("theme", "dark");
 })();
 
 // Theme

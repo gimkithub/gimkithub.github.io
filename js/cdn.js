@@ -10,6 +10,7 @@ function clean(name) {
 // Fetching
 async function fetchGames() {
 	const games_json = await fetch(`${CDN}list_games.json`);
+
 	return games_json.json();
 }
 
@@ -27,9 +28,9 @@ function recordRecentlyPlayed(game) {
 
 // Launching
 function launchGame(game) {
-	recordRecentlyPlayed(game);
-
 	const gameSrc = `${CDN}${game.gameIndex}`;
+
+	recordRecentlyPlayed(game);
 
 	localStorage.setItem("srcGame", gameSrc);
 	window.open("player.html", "_blank");
@@ -37,7 +38,6 @@ function launchGame(game) {
 
 // Cards
 function buildGameCard(game) {
-	const isHot = game.popular == true;
 	const imgSrc = `${CDN}img/games/${clean(game.gameName)}.webp`;
 
 	const card = document.createElement("a");
@@ -46,7 +46,7 @@ function buildGameCard(game) {
         <div class="game-image">
             <img src="${imgSrc}" alt="${game.gameName}" loading="lazy" onerror="this.src='img/placeholder.png';this.style='image-rendering: pixelated;'" />
 
-            ${isHot ? `<span class="hot-tag">HOT 🔥</span>` : ``}
+            ${game.popular == true ? `<span class="hot-tag">HOT 🔥</span>` : ``}
         </div>
         
         <div class="game-title">${game.gameName}</div>
