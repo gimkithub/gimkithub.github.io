@@ -1,0 +1,107 @@
+/* Top Bar */
+.toolbar-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 32px;
+
+    position: sticky;
+    top: 60px;
+    z-index: 100;
+    justify-content: space-between;
+
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+
+@media (max-width: 720px) {
+    .toolbar-wrap {
+        position: static;
+    }
+}
+
+/* Search */
+.search-bar {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+    max-width: 350px;
+    padding: 0px 12px;
+
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 0;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    font-weight: 500;
+    color: var(--text2);
+}
+
+.search-bar input::placeholder {
+    color: var(--text3);
+}
+
+@media (max-width: 720px) {
+    .search-bar {
+        max-width: 100%;
+    }
+}
+
+/* Filters */
+.filter-bar {
+    display: flex;
+    gap: 8px;
+}
+
+.filter {
+    padding: 6px 14px;
+
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+
+    font-weight: 600;
+    color: var(--text2);
+
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.filter:hover {
+    background: var(--bg2);
+    color: var(--text);
+    border-color: var(--border2);
+}
+
+.filter.active {
+    background: var(--accent-dim);
+    border-color: var(--accent-border);
+    color: var(--accent);
+}
+
+@media (max-width: 720px) {
+    .filter-bar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filter {
+        width: 100%;
+    }
+}
+
+/* Games */
+.games-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}

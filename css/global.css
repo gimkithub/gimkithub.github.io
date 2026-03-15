@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --accent: #38A;
+    --accent-dim: #5CC2;
+    --accent-border: #5CC4;
+
+    --shadow: 0 -2px 8px rgba(0, 0, 0, 0.25);
+
+    --radius: 12px;
+    --transition: .2s ease;
+}
+
+/* Theme */
+[data-theme="light"] {
+    --bg: #f2f2f0;
+    --bg2: #eeeeec;
+    --border: #dcdcda;
+    --border2: #d4d4d1;
+
+    --text: #121314;
+    --text2: #5a6a6f;
+    --text3: #9aabac;
+}
+
+[data-theme="dark"] {
+    --bg: #101020;
+    --bg2: #151525;
+    --border: #252535;
+    --border2: #303040;
+
+    --text: #fafbfc;
+    --text2: #8090a0;
+    --text3: #505560;
+}
+
+/* Global */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    transition:
+        background var(--transition),
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        opacity var(--transition),
+        border-color var(--transition);
+
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    text-decoration: none;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    background: var(--bg);
+}
+
+/* Text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text);
+}
+
+h1 {
+    margin-bottom: 24px;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+}
+
+h4 {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+h5 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+h6 {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+p,
+a,
+li {
+    margin-bottom: 8px;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.25px;
+    color: var(--text2);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+ol,
+ul {
+    margin: 20px;
+
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+.key {
+    padding: 4px 10px;
+    margin: 0 4px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-bottom-width: 3px;
+    border-radius: 6px;
+
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+
+/* Navbar */
+nav {
+    display: flex;
+    gap: 3vw;
+    height: 60px;
+    padding: 0 3vw;
+
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    align-items: center;
+
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.nav-logo span {
+    font-weight: 900;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    flex: 1;
+    gap: 12px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 6px 12px;
+
+    border-radius: var(--radius);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text2);
+}
+
+.nav-links a:hover {
+    background: var(--bg2);
+    color: var(--text);
+}
+
+.nav-links a.active {
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-width: 50px;
+    height: 26px;
+    position: relative;
+
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    cursor: pointer;
+}
+
+.theme-toggle::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    background: var(--text3);
+    border-radius: 100%;
+}
+
+[data-theme="dark"] .theme-toggle:after {
+    background: var(--accent);
+    transform: translateX(24px);
+}
+
+@media (max-width: 580px) {
+    .nav-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .nav-links {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .theme-toggle,
+    .theme-toggle::after {
+        display: none;
+    }
+}
+
+/* General */
+.section-wrap {
+    max-width: 1200px;
+    margin: 16px auto;
+    padding: 16px 32px;
+}
+
+.divider {
+    max-width: 1200px;
+    height: 1px;
+    margin: 0 auto;
+
+    background: var(--border);
+}
+
+.btn-primary {
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+    .section-wrap {
+        margin: 16px;
+    }
+}
+
+/* Games */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 950px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.game-card {
+    overflow: hidden;
+
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow);
+    border-color: var(--accent-border);
+}
+
+.game-image {
+    aspect-ratio: 1 / 1;
+
+    position: relative;
+}
+
+.game-image img {
+    height: 100%;
+}
+
+.hot-tag {
+    padding: 4px 8px;
+
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 2;
+
+    background: #D30A;
+    box-shadow: 0 0 6px #D306;
+    border: #D30E 1px solid;
+    border-radius: 100px;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #FFF;
+}
+
+.game-title {
+    padding: 8px 12px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    padding: 16px;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 0.8rem;
+    color: var(--text3);
+    text-align: center;
+}

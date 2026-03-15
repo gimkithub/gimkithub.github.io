@@ -1,0 +1,8 @@
+/*Global Overrides */
+.section-wrap {
+    max-width: 1000px;
+}
+
+.section-wrap a {
+    text-decoration: underline;
+}

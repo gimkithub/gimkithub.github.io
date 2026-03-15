@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, nofollow" />
+
+    <title>Project-HUB | Settings</title>
+    <meta name="description" content="An all-inclusive game library of Flash games, web ports, emulators, and more. No BS or installs
+    needed." />
+
+    <meta property="og:title" content="Project-HUB | Settings" />
+    <meta property="og:site_name" content="Project-HUB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/index_hero.webp" />
+    <meta property="og:image:alt" content="Laptop with Project-HUB website." />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" id="dynamic-favicon" type="image/png" href="img/favicons/favicon-64x64.png" sizes="64x64">
+
+    <link rel="icon" type="image/svg+xml" href="img/favicons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="64x64" href="img/favicons/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar"></nav>
+
+    <!-- Main -->
+
+    <!-- Tab Masking -->
+    <div class="section-wrap">
+        <h2>Tab Masking</h2>
+
+        <div class="presets" id="presets"></div>
+    </div>
+
+    <div class="section-wrap advanced">
+        <h3>Custom Disguise</h3>
+
+        <!-- Tab Favicon -->
+        <div class="option">
+            <div class="option-label">
+                <h4>Tab Icon</h4>
+                <p>Copies the tab icon of the website.</p>
+            </div>
+            <div class="option-input">
+                <img id="icon-preview">
+                <input type="url" placeholder="https://google.com/" id="tab-icon">
+            </div>
+        </div>
+
+        <!-- Tab Title -->
+        <div class="option">
+            <div class="option-label">
+                <h4>Tab Title</h4>
+                <p>Sets the tab title to input.</p>
+            </div>
+            <div class="option-input">
+                <input type="text" placeholder="Google" id="tab-title">
+            </div>
+        </div>
+        <!-- Custom Presets
+
+        <div class="divider"></div>
+
+        <h3>Presets</h3>
+        <div class="presets" id="custom-presets"></div>
+
+        -->
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Appearance -->
+    <div class="section-wrap">
+        <h2>Appearance</h2>
+
+        <div class="option">
+            <div class="option-label">
+                <h3>Toggle Dark Mode</h3>
+                <p>Switch between Dark and Light theme.</p>
+            </div>
+            <label class="option-switch">
+                <input type="checkbox" id="theme-btn">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Show Advanced Options -->
+    <div class="section-wrap">
+        <h2>Advanced Options</h2>
+
+        <div class="option">
+            <div class="option-label">
+                <h3>Show Advanced Options</h3>
+                <p>Enables Advanced Options panel and custom Tab Disguises.</p>
+            </div>
+            <label class="option-switch">
+                <input type="checkbox" id="advanced-btn">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Advanced Options -->
+    <div class="section-wrap advanced">
+        <!-- Panic Key -->
+        <div class="option">
+            <div class="option-label">
+                <h3>Enable Panic Key</h3>
+                <p>Tab switches to Google when <span class="key">esc</span> is pressed rapidly.</p>
+            </div>
+            <label class="option-switch">
+                <input type="checkbox" id="panic-btn">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
+
+        <!-- Advertisements -->
+        <div class="option">
+            <div class="option-label">
+                <h3>Enable Ad Banners</h3>
+                <p>Does not affect in-page advertisements.</p>
+            </div>
+            <label class="option-switch">
+                <input type="checkbox" id="ad-btn">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Clear Recently Played -->
+        <div class="option">
+            <div class="option-label">
+                <h3>Clear Recently Played</h3>
+                <p>Removes all games from your recently played history</p>
+            </div>
+            <button class="btn-secondary" id="clear-history-btn">Clear History</button>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/cdn.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+
+</html>
