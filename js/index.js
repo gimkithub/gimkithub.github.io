@@ -1,6 +1,4 @@
 // Config
-const MAX_DISCOVER = 12;
-
 const REVIEWS = [
 	{ user: "typicalsneeze", stars: 4, text: "Project-HUB: A serene digital escape - the calm luh website you've been seeking." },
 	{ user: "Leggoome", stars: 5, text: "Before I found this website, I had no girlfriend and was a loser. This hasn't changed, but the website is cool." },
@@ -77,19 +75,10 @@ function initGameCounter() {
 	count.textContent = `${games.length} GAMES AVAILABLE`;
 }
 
-// Discover
-function initDiscover() {
-	const grid = document.getElementById("discover-grid");
-	const randomGames = [...games].sort(() => Math.random() - 0.5).slice(0, MAX_DISCOVER);
-
-	grid.innerHTML = "";
-	randomGames.forEach((game) => grid.appendChild(buildGameCard(game)));
-}
-
 // Initialize
 (async function init() {
 	games = await fetchGames();
 
 	initGameCounter();
-	initDiscover();
+	addRandomGames(games);
 })();

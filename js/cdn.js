@@ -1,6 +1,7 @@
 // Config
 const CDN = "https://iamchristians.github.io/assets/";
 const MAX_RECENT = 12;
+const MAX_RANDOM_GAMES = 12;
 
 // Helpers
 function clean(name) {
@@ -26,19 +27,11 @@ function recordRecentlyPlayed(game) {
 	localStorage.setItem("recent-games-played", JSON.stringify(recent.slice(0, MAX_RECENT)));
 }
 
-// Launching
-function launchGame(game) {
-	const gameSrc = `${CDN}${game.gameIndex}`;
-
-	recordRecentlyPlayed(game);
-
-	localStorage.setItem("srcGame", gameSrc);
-	window.open("player.html", "_blank");
-}
-
 // Cards
 function buildGameCard(game) {
-	const imgSrc = `${CDN}img/games/${clean(game.gameName)}.webp`;
+    const cleanGameName = clean(game.gameName);
+	const imgSrc = `${CDN}img/games/${cleanGameName}.webp`;
+    const favoritedGames = JSON.parse(localStorage.getItem("favorited-games"));
 
 	const card = document.createElement("a");
 	card.className = "game-card";
@@ -51,10 +44,24 @@ function buildGameCard(game) {
         
         <div class="game-title">${game.gameName}</div>
     `;
+    if (favoritedGames && game.gameName in favoritedGames) {
+        card.appendChild("<h2>test</h2>")
+    } 
 
 	card.addEventListener("click", () => {
-		launchGame(game);
+        recordRecentlyPlayed(game);
+
+        window.open("player.html?" + cleanGameName, "_blank");
 	});
 
 	return card;
+}
+
+// Add random games to grid
+function addRandomGames(games) {
+	const grid = document.getElementById("random-games-grid");
+	const randomGames = [...games].sort(() => Math.random() - 0.5).slice(0, MAX_RANDOM_GAMES);
+
+	grid.innerHTML = "";
+	randomGames.forEach((game) => grid.appendChild(buildGameCard(game)));
 }
