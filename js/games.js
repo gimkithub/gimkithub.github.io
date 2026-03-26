@@ -3,16 +3,19 @@ let games = [];
 let activeFilter = "";
 let search = "";
 
-// Create Sorted Games List
-(async function initGrid() {
-	games = await fetchGames();
-	games.sort((a, b) => a.gameName.localeCompare(b.gameName));
-
-	renderGrid();
-})();
-
 // Filters
-(function initFilters() {
+function addFilter(text, filter) {
+	const filterBar = document.getElementById("filter-bar");
+
+	const btn = document.createElement("button");
+	btn.classList.add("filter");
+    btn.textContent = text;
+	btn.dataset.filter = filter;
+
+	filterBar.append(btn);
+}
+
+function initFilters() {
 	const filters = document.querySelectorAll(".filter");
 	const searchInput = document.getElementById("search-input");
 
@@ -35,7 +38,7 @@ let search = "";
 		search = searchInput.value.toLowerCase().trim();
 		renderGrid();
 	});
-})();
+};
 
 // Render (Filtered) Games
 function renderGrid() {
@@ -58,11 +61,16 @@ function renderGrid() {
 						break;
 					}
 					case "favorite": {
-						matchesFilter = favoritedGames.includes(game.gameName);
+                        if (!favoritedGames) {
+                            matchesFilter = null;
+                        } else {
+                            matchesFilter = favoritedGames.includes(game.gameName);
+                        }
 						break;
 					}
 					default: {
-						matchesFilter = game.gameName.includes(pill.dataset.filter);
+						matchesFilter = game.gameName.toLowerCase().includes(pill.dataset.filter);
+
 						break;
 					}
 				}
@@ -81,3 +89,17 @@ function renderGrid() {
 		filtered.forEach((game) => grid.appendChild(buildGameCard(game)));
 	}
 }
+
+(async function init() {
+	games = await fetchGames();
+	games.sort((a, b) => a.gameName.localeCompare(b.gameName));
+
+    addFilter("Hot 🔥", "hot");
+    addFilter("Favorite ❤️", "favorite");
+    addFilter("Papa's Games", "papa");
+    addFilter("Riddle School", "riddle");
+    addFilter("Pokemon", "pokemon");
+
+	renderGrid();
+    initFilters();
+})();
