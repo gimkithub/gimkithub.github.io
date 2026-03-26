@@ -47,19 +47,12 @@ function buildGameCard(game) {
             <img src="${imgSrc}" alt="${game.gameName}" loading="lazy" onerror="this.src='img/placeholder.png';this.style='image-rendering: pixelated;'" />
 
             ${game.popular ? `<span class="hot-tag">HOT 🔥</span>` : ``}
-            ${favoritedGames.includes(game.gameName) ? `<span class="hot-tag favorite-tag">${FAVORITE_SVG}</span>` : ``}
+            ${favoritedGames && favoritedGames.includes(game.gameName) ? `<span class="hot-tag favorite-tag">${FAVORITE_SVG}</span>` : ``}
         </div>
         
         <div class="game-title">${game.gameName}</div>
     `;
-	/*
-    if (favoritedGames && favoritedGames.includes(game.gameName)) {
-        const test = document.createElement("h2");
-        test.textContent = "test";
-        card.appendChild(test)
-    }
-    */
-
+    
 	card.addEventListener("click", () => {
 		recordRecentlyPlayed(game);
 
