@@ -8,6 +8,12 @@ const FULLSCREEN_SVG = `
     </svg>
 `;
 
+const SHARE_SVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 800 800" fill="var(--text)">
+        <polyline class="c" fill="none" stroke="var(--text)" stroke-width=100 points="610 125 125 400 610 675"/><circle class="b" cx="125" cy="400" r="125"/><circle class="b" cx="610" cy="125" r="125"/><circle class="b" cx="610" cy="675" r="125"/>
+    </svg>
+`;
+
 const MUTE_SVG = `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 800 800" fill="var(--text)">
         <path class="b" d="M374,471.6l-40,149.2c-7.4,27.6-41.9,36.9-62.2,16.7l-19.9-19.9-168,168c-19.2,19.2-50.3,19.2-69.5,0-19.2-19.2-19.2-50.3,0-69.5l168-168-19.9-19.9c-20.2-20.2-11-54.8,16.7-62.2l149.2-40c27.6-7.4,52.9,17.9,45.5,45.5Z"/>
@@ -103,6 +109,7 @@ function loadGame() {
 
 	loadGame();
 
+    addToolbarSVG("share");
 	addToolbarSVG("favorite");
 	addToolbarSVG("mute");
 	addToolbarSVG("fullscreen");

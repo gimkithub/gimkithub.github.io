@@ -83,15 +83,47 @@
     gap: 32px;
 }
 
+.game-details {
+    display: grid;
+    gap: 12px;
+    padding: 32px;
+
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.game-details div {
+    display: flex;
+    margin: auto 0;
+}
+
+.game-details div h4 {
+    flex: 1;
+
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+.game-details div p {
+    padding: 2px 16px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
 @media (min-width: 1200px) {
-    .game-info div:first-child {
+    .game-info div:first-child:not(.game-details div) {
         padding-right: 32px;
 
         border-right: 1px solid var(--border);
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
     .game-info {
         grid-template-columns: repeat(1, 1fr);
         gap: 32px;
