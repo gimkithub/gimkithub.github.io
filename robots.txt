@@ -5,7 +5,7 @@ Disallow: /player.html
 Crawl-delay: 5
 # Sitemap: https://example.com/sitemap.xml
 
-## 
+##
 
 # Disallow AI bot crawling
 User-agent: GPTBot

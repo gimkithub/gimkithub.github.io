@@ -35,6 +35,10 @@
     animation: flash 2s ease infinite;
 }
 
+.hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+}
+
 .hero-content h1 span {
     color: var(--accent);
 }

@@ -1,8 +1,22 @@
 /* Global Overrides */
 .section-wrap {
     max-width: 1000px;
+
+    text-align: justify;
 }
 
 .section-wrap a {
     text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .section-wrap {
+        margin: 16px auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .section-wrap {
+        margin: 16px;
+    }
 }

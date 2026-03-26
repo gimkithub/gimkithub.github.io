@@ -1,12 +1,12 @@
 // First-Time Users
 (function autoCookies() {
-    function setCookie(cookieName, property) {
-        if (localStorage.getItem(cookieName) == null) localStorage.setItem(cookieName, property || "true");
-    }
+	function setCookie(cookieName, property) {
+		if (localStorage.getItem(cookieName) == null) localStorage.setItem(cookieName, property || "true");
+	}
 
-    setCookie("panic-toggle");
-    setCookie("show-banners");
-    setCookie("theme", "dark");
+	setCookie("panic-toggle");
+	setCookie("show-banners");
+	setCookie("theme", "dark");
 })();
 
 // Theme

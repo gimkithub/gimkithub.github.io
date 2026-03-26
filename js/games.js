@@ -40,6 +40,11 @@ let search = "";
 // Render (Filtered) Games
 function renderGrid() {
 	const pills = document.querySelectorAll(".filter");
+	let favoritedGames = [];
+
+	if (localStorage.getItem("favorited-games")) {
+		favoritedGames = JSON.parse(localStorage.getItem("favorited-games"));
+	}
 
 	const filtered = games.filter((game) => {
 		const matchesSearch = game.gameName.toLowerCase().includes(search);
@@ -47,10 +52,19 @@ function renderGrid() {
 
 		pills.forEach((pill) => {
 			if (pill.classList.contains("active")) {
-				if (pill.dataset.filter == "hot") {
-					matchesFilter = game.popular;
-				} else {
-					matchesFilter = game.gameName.includes(pill.dataset.filter);
+				switch (pill.dataset.filter) {
+					case "hot": {
+						matchesFilter = game.popular;
+						break;
+					}
+					case "favorite": {
+						matchesFilter = favoritedGames.includes(game.gameName);
+						break;
+					}
+					default: {
+						matchesFilter = game.gameName.includes(pill.dataset.filter);
+						break;
+					}
 				}
 			}
 		});

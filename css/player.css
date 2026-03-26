@@ -6,6 +6,19 @@
 
 .btn-secondary {
     background: var(--bg2);
+    padding: 16px;
+}
+
+@media (max-width: 1200px) {
+    .section-wrap {
+        margin: 16px auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .section-wrap {
+        margin: 16px;
+    }
 }
 
 /* Player */
@@ -38,14 +51,18 @@
     margin: auto 0;
 }
 
-.toolbar-info h2 {
+.toolbar-info h1 {
     margin-bottom: 8px;
+}
+
+.toolbar-info a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .toolbar-actions {
     display: flex;
     gap: 12px;
-    padding: 10px;
 }
 
 .toolbar-actions button {
@@ -56,5 +73,27 @@
 .toolbar-actions button:active {
     svg {
         transform: scale(1.1);
+    }
+}
+
+/* Game Info */
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+@media (min-width: 1200px) {
+    .game-info div:first-child {
+        padding-right: 32px;
+
+        border-right: 1px solid var(--border);
+    }
+}
+
+@media (max-width: 1200px) {
+    .game-info {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 32px;
     }
 }
