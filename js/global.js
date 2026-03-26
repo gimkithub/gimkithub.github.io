@@ -7,6 +7,7 @@
 	setCookie("panic-toggle");
 	setCookie("show-banners");
 	setCookie("theme", "dark");
+	setCookie("favorited-games", "[]");
 })();
 
 // Theme
