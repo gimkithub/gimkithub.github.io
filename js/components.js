@@ -1,16 +1,18 @@
 // Navbar
-(function initNav() {
-	function isActive(href) {
-		const currentPage = window.location.pathname;
+function isActive(href) {
+	const currentPage = window.location.pathname;
 
-		if (currentPage.split("/").pop("") == href) return `class="active"`;
-	}
+	if (currentPage.split("/").pop("") == href) return `class="active"`;
+}
 
-	function addLink(href, name) {
-		return `
-            <a href="${href}" ${isActive(href)}>${name}</a>
-        `;
-	}
+function addLink(href, name) {
+	return `
+        <a href="${href}" ${isActive(href)}>${name}</a>
+    `;
+}
+
+function buildNavbar() {
+    const navbar = document.getElementById("navbar");
 
 	navbar.innerHTML = `
         <a href="index.html" class="nav-logo">Project-<span>HUB</span></a>
@@ -27,13 +29,19 @@
             ${MOON_SVG}
         </button>
     `;
-})();
+}
 
 // Footer
-(function initFooter() {
+function buildFooter() {
+    const footer = document.getElementById("footer");
 	const year = new Date().getFullYear();
 
 	footer.innerHTML = `
         ${year} &copy; Christian Santangelo
     `;
+}
+
+(function init() {
+    buildNavbar();
+    buildFooter();
 })();
