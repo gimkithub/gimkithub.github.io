@@ -76,12 +76,12 @@
 
 /* Tooltips */
 .tooltip {
-    display: block;
     padding: 10px 20px;
 
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -55px);
+    z-index: 999 !important;
 
     background: var(--bg);
     border: 1px solid var(--border);
@@ -90,10 +90,20 @@
     font-size: 0.9rem;
     font-weight: 600;
     text-wrap-mode: nowrap;
+
+    opacity: 0;
 }
 
 .toolbar-actions button:hover .tooltip {
-    display: block;
+    opacity: 1 !important;
+}
+
+.border-success {
+    border-color: var(--border-green);
+}
+
+.border-fail {
+    border-color: var(--border-red);
 }
 
 

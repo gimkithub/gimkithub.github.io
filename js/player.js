@@ -7,6 +7,9 @@ let isFavorited = false;
 function addToolbarSVG(id, label = null) {
 	const toolbar = document.getElementById("toolbar-buttons");
 
+	const wrapper = document.createElement("div");
+	wrapper.classList.add("toolbar-button-wrapper");
+
 	const btn = document.createElement("button");
 	btn.classList.add("btn-secondary");
 	btn.id = id;
@@ -18,11 +21,35 @@ function addToolbarSVG(id, label = null) {
 		const tooltip = document.createElement("span");
 		tooltip.classList.add("tooltip");
 		tooltip.textContent = label;
+		tooltip.id = id + "-tooltip";
 
 		btn.append(tooltip);
 	}
 
-	toolbar.append(btn);
+	wrapper.append(btn);
+	toolbar.append(wrapper);
+}
+
+function initShare() {
+	const shareBtn = document.getElementById("share");
+	const tooltip = document.getElementById("share-tooltip");
+
+	shareBtn.addEventListener("click", () => {
+		try {
+			navigator.clipboard.writeText(window.location.href);
+
+			tooltip.textContent = "Link Copied";
+            tooltip.classList.add("border-success");
+		} catch (error) {
+			tooltip.textContent = "Copy Failed";
+            tooltip.classList.add("border-fail");
+		}
+
+		setTimeout(() => {
+			tooltip.textContent = "Copy Game Link";
+            tooltip.classList = "tooltip";
+		}, 3000);
+	});
 }
 
 function initFavorite() {
@@ -99,6 +126,7 @@ function loadGame() {
 	addToolbarSVG("favorite");
 	addToolbarSVG("mute");
 	addToolbarSVG("fullscreen");
+	initShare();
 	initFavorite();
 	initFullscreen();
 

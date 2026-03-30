@@ -15,8 +15,11 @@
 [data-theme="light"] {
     --bg: #f2f2f0;
     --bg2: #eeeeec;
+
     --border: #dcdcda;
     --border2: #d4d4d1;
+    --border-green: #adc;
+    --border-red: #daa;
 
     --text: #121314;
     --text2: #5a6a6f;
@@ -26,8 +29,11 @@
 [data-theme="dark"] {
     --bg: #101020;
     --bg2: #151525;
+
     --border: #252535;
     --border2: #303040;
+    --border-green: #353;
+    --border-red: #533;
 
     --text: #fafbfc;
     --text2: #8090a0;
