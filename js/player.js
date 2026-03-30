@@ -4,15 +4,23 @@ let currentGame;
 let isFavorited = false;
 
 // Toolbar
-function addToolbarSVG(id) {
+function addToolbarSVG(id, label = null) {
 	const toolbar = document.getElementById("toolbar-buttons");
 
 	const btn = document.createElement("button");
 	btn.classList.add("btn-secondary");
 	btn.id = id;
 
-	const SVG = id.toUpperCase() + "_SVG";
+    const SVG = id.toUpperCase() + "_SVG";
 	btn.innerHTML = eval(SVG);
+
+    if (label) {
+        const tooltip = document.createElement("span");
+        tooltip.classList.add("tooltip");
+        tooltip.textContent = label;
+
+        btn.append(tooltip);
+    }
 
 	toolbar.append(btn);
 }
@@ -87,7 +95,7 @@ function loadGame() {
 
 	loadGame();
 
-    addToolbarSVG("share");
+    addToolbarSVG("share", "Copy Game Link");
 	addToolbarSVG("favorite");
 	addToolbarSVG("mute");
 	addToolbarSVG("fullscreen");

@@ -70,11 +70,32 @@
     aspect-ratio: 1/1;
 }
 
-.toolbar-actions button:active {
-    svg {
-        transform: scale(1.1);
-    }
+.toolbar-actions button:active svg {
+    transform: scale(1.1);
 }
+
+/* Tooltips */
+.tooltip {
+    display: block;
+    padding: 10px 20px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-wrap-mode: nowrap;
+}
+
+.toolbar-actions button:hover .tooltip {
+    display: block;
+}
+
 
 /* Game Info */
 .game-info {
