@@ -54,9 +54,9 @@ If you have an inquiry to talk to me directly regarding Project-HUB, please send
 
 # Acknowledgements 🌟
 
-Each game I curate can be found and seen in the [assets repo available here](https://github.com/IamChristianS/assets). It also contains credits for any projects or things I think deserved crediting.
+Each game I curate can be found and seen in the [assets repo available here](https://github.com/IamChristianS/assets). Credits for any games are found on the game's page. If you see a game that is missing credits, and you are aware of who should be credited, please send me an email so I can add it!
 
-I'd also like to give some special thanks to [3kh0](https://github.com/3kh0), who is kind of _the_ guy in the unblocked gaming world. If it wasn't for his projects, and the projects that have been started because of him, this likely wouldn't exist.
+I'd also like to give some special thanks to [3kh0](https://github.com/3kh0), who is kind of _the_ guy in the unblocked gaming world. If it weren't for his projects and the projects that have been started because of him, this likely wouldn't exist.
 
 ---
 
