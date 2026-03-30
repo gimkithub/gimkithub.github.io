@@ -8,7 +8,7 @@ function autoCookies() {
 	setCookie("show-banners");
 	setCookie("theme", "dark");
 	setCookie("favorited-games", "[]");
-};
+}
 
 // Theme
 function switchTheme(theme) {
@@ -30,7 +30,7 @@ function initTheme() {
 			themeToggle.checked = !themeToggle.checked;
 		}
 	});
-};
+}
 
 // Tab Disguise
 function initMask() {
@@ -45,7 +45,7 @@ function initMask() {
 	if (savedIcon && favicon) {
 		favicon.href = savedIcon;
 	}
-};
+}
 
 // Panic Hotkey
 function initPanic() {
@@ -68,12 +68,12 @@ function initPanic() {
 			document.location.href = "https://www.google.com/";
 		}
 	});
-};
+}
 
 // Initialization
 (function init() {
-    autoCookies();
-    initTheme();
-    initMask();
-    initPanic();
+	autoCookies();
+	initTheme();
+	initMask();
+	initPanic();
 })();

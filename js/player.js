@@ -11,16 +11,16 @@ function addToolbarSVG(id, label = null) {
 	btn.classList.add("btn-secondary");
 	btn.id = id;
 
-    const SVG = id.toUpperCase() + "_SVG";
+	const SVG = id.toUpperCase() + "_SVG";
 	btn.innerHTML = eval(SVG);
 
-    if (label) {
-        const tooltip = document.createElement("span");
-        tooltip.classList.add("tooltip");
-        tooltip.textContent = label;
+	if (label) {
+		const tooltip = document.createElement("span");
+		tooltip.classList.add("tooltip");
+		tooltip.textContent = label;
 
-        btn.append(tooltip);
-    }
+		btn.append(tooltip);
+	}
 
 	toolbar.append(btn);
 }
@@ -95,7 +95,7 @@ function loadGame() {
 
 	loadGame();
 
-    addToolbarSVG("share", "Copy Game Link");
+	addToolbarSVG("share", "Copy Game Link");
 	addToolbarSVG("favorite");
 	addToolbarSVG("mute");
 	addToolbarSVG("fullscreen");

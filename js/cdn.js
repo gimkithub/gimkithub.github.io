@@ -45,7 +45,7 @@ function buildGameCard(game) {
         
         <div class="game-title">${game.gameName}</div>
     `;
-    
+
 	card.addEventListener("click", () => {
 		recordRecentlyPlayed(game);
 

@@ -12,7 +12,7 @@ function addLink(href, name) {
 }
 
 function buildNavbar() {
-    const navbar = document.getElementById("navbar");
+	const navbar = document.getElementById("navbar");
 
 	navbar.innerHTML = `
         <a href="index.html" class="nav-logo">Project-<span>HUB</span></a>
@@ -33,7 +33,7 @@ function buildNavbar() {
 
 // Footer
 function buildFooter() {
-    const footer = document.getElementById("footer");
+	const footer = document.getElementById("footer");
 	const year = new Date().getFullYear();
 
 	footer.innerHTML = `
@@ -42,6 +42,6 @@ function buildFooter() {
 }
 
 (function init() {
-    buildNavbar();
-    buildFooter();
+	buildNavbar();
+	buildFooter();
 })();
