@@ -29,7 +29,7 @@ function changeTab(title, favicon_url) {
 	}
 }
 
-(function initPresets() {
+function buildPresets() {
 	const presetWrap = document.getElementById("presets");
 
 	for (const presetName in PRESETS) {
@@ -53,7 +53,7 @@ function changeTab(title, favicon_url) {
 
 		presetWrap.appendChild(preset);
 	}
-})();
+};
 
 /* Custom Tab Presets
 (function initCustomPresets() {
@@ -69,7 +69,7 @@ function changeTab(title, favicon_url) {
 */
 
 // Custom Tab Icon Masking
-(function initTabIcon() {
+function buildTabIcon() {
 	function isValid(url) {
 		const pattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*$/;
 		return pattern.test(url);
@@ -98,10 +98,10 @@ function changeTab(title, favicon_url) {
 			localStorage.setItem("saved-tab-icon", "");
 		}
 	});
-})();
+};
 
 // Custom Tab Title Masking
-(function initTabTitle() {
+function buildTabTitle() {
 	const tabInput = document.getElementById("tab-title");
 
 	const originalTitle = "Project-HUB | Settings";
@@ -119,7 +119,7 @@ function changeTab(title, favicon_url) {
 			localStorage.removeItem("saved-tab-title");
 		}
 	});
-})();
+};
 
 // Create Persistent Keys
 function createToggle(toggleId, cookieName, onChange) {
@@ -142,10 +142,8 @@ function renderAdvanced() {
 	});
 }
 
-renderAdvanced();
-
 // Dark Mode
-(function initTheme() {
+function buildTheme() {
 	const themeToggle = document.getElementById("theme-btn");
 	const savedTheme = localStorage.getItem("theme");
 
@@ -154,10 +152,10 @@ renderAdvanced();
 	themeToggle.addEventListener("change", () => {
 		switchTheme(themeToggle.checked ? "dark" : "light");
 	});
-})();
+};
 
 // Clear Recently Played
-(function clearRecent() {
+function buildClearRecent() {
 	const clearBtn = document.getElementById("clear-history-btn");
 
 	clearBtn.addEventListener("click", () => {
@@ -166,9 +164,19 @@ renderAdvanced();
 			localStorage.removeItem("recent-games-played");
 		}
 	});
+};
+
+(function init() {
+    createToggle("panic-btn", "panic-toggle");
+    createToggle("advanced-btn", "render-advanced", renderAdvanced);
+    createToggle("ad-btn", "show-banners");
+
+    renderAdvanced();
+
+    buildPresets();
+    buildTabIcon();
+    buildTabTitle();
+    buildTheme();
+    buildClearRecent();
 })();
 
-// Create Toggles
-createToggle("panic-btn", "panic-toggle");
-createToggle("advanced-btn", "render-advanced", renderAdvanced);
-createToggle("ad-btn", "show-banners");
