@@ -98,15 +98,6 @@
     opacity: 1 !important;
 }
 
-.border-success {
-    border-color: var(--border-green);
-}
-
-.border-fail {
-    border-color: var(--border-red);
-}
-
-
 /* Game Info */
 .game-info {
     display: grid;

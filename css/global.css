@@ -18,8 +18,9 @@
 
     --border: #dcdcda;
     --border2: #d4d4d1;
-    --border-green: #adc;
-    --border-red: #daa;
+    --border-green: #8d8;
+    --border-yellow: #fe0;
+    --border-red: #d88;
 
     --text: #121314;
     --text2: #5a6a6f;
@@ -32,8 +33,9 @@
 
     --border: #252535;
     --border2: #303040;
-    --border-green: #353;
-    --border-red: #533;
+    --border-green: #373;
+    --border-yellow: #860;
+    --border-red: #733;
 
     --text: #fafbfc;
     --text2: #8090a0;
@@ -319,6 +321,18 @@ nav {
 .btn-primary:active,
 .btn-secondary:active {
     opacity: 0.8;
+}
+
+.border-success {
+    border-color: var(--border-green) !important;
+}
+
+.border-caution {
+    border-color: var(--border-yellow) !important;
+}
+
+.border-fail {
+    border-color: var(--border-red) !important;
 }
 
 @media (max-width: 1200px) {
