@@ -56,7 +56,6 @@ function initPanic() {
 	document.addEventListener("keydown", (input) => {
 		if (input.key !== "Escape" || localStorage.getItem("panic-toggle") == "false") return;
 
-		console.info("escape " + escCount);
 		escCount++;
 		clearTimeout(escTimeout);
 
@@ -65,8 +64,7 @@ function initPanic() {
 		}, 300);
 
 		if (escCount >= 3) {
-			console.warn("get sent slime");
-			document.location.href = localStorage.getItem(panic-site);
+			document.location.href = localStorage.getItem("panic-site");
 		}
 	});
 }

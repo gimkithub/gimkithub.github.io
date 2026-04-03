@@ -246,7 +246,6 @@ function buildClearRecent() {
 
 	clearBtn.addEventListener("click", () => {
 		if (getRecentlyPlayed() != "[]") {
-			console.info("got recent played");
 			localStorage.removeItem("recent-games-played");
 		}
 	});
