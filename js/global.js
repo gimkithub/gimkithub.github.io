@@ -8,7 +8,7 @@ function autoCookies() {
 	setCookie("show-banners");
 	setCookie("theme", "dark");
 	setCookie("favorited-games", "[]");
-	setCookie("panic-site", "https://google.com/");
+	setCookie("saved-panic-url", "https://google.com/");
 }
 
 // Theme
@@ -64,7 +64,7 @@ function initPanic() {
 		}, 300);
 
 		if (escCount >= 3) {
-			document.location.href = localStorage.getItem("panic-site");
+			window.location.replace(localStorage.getItem("saved-panic-url"));
 		}
 	});
 }
