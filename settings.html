@@ -120,10 +120,12 @@
     <!-- Advanced Options -->
     <div class="section-wrap advanced">
         <!-- Panic Key -->
+        <h3>Panic Key</h3>
+
         <div class="option">
             <div class="option-label">
-                <h3>Enable Panic Key</h3>
-                <p>Tab switches to Google when <span class="key">esc</span> is pressed rapidly.</p>
+                <h4>Enable Panic Key</h4>
+                <p>Tab switches to another site when <span class="key">esc</span> is pressed rapidly.</p>
             </div>
             <label class="option-switch">
                 <input type="checkbox" id="panic-btn">
@@ -131,7 +133,17 @@
             </label>
         </div>
 
-        <!-- Advertisements -->
+        <div class="option">
+            <div class="option-label">
+                <h4>Site Endpoint</h4>
+                <p>Sets the tab being switched to when the Panic Key is used.<br>Default is Google.</p>
+            </div>
+            <div class="option-input">
+                <input type="url" placeholder="https://google.com/" id="panic-site">
+            </div>
+        </div>
+
+        <!-- Advertisements
         <div class="option">
             <div class="option-label">
                 <h3>Enable Ad Banners</h3>
@@ -142,6 +154,7 @@
                 <span class="switch-slider"></span>
             </label>
         </div>
+        -->
 
         <div class="divider"></div>
 
