@@ -101,7 +101,7 @@ function buildMute() {
 	const muteBtn = document.getElementById("mute");
 	const muteMask = document.getElementById("mute-mask");
 	const player = document.getElementById("player");
-    const tooltip = document.getElementById("share-tooltip");
+    const tooltip = document.getElementById("mute-tooltip");
 
     muteMask.style.transformOrigin = "center";
 
