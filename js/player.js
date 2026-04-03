@@ -150,8 +150,15 @@ function loadGame() {
 function loadDetails() {
 	const gameDescription = document.getElementById("game-description");
 	const gameDetails = document.getElementById("game-details");
+    const gameKeys = Object.keys(currentGame);
+    const infoButton = document.getElementById("info-btn");
 
-	if (Object.keys(currentGame).includes("description")) {
+    if (!gameKeys.includes("description" && !gameKeys.includes("details"))) {
+        infoButton.style.display = "none";
+        return;
+    }
+
+	if (gameKeys.includes("description")) {
 		const description = document.createElement("p");
 		description.textContent = currentGame["description"];
 
@@ -160,7 +167,7 @@ function loadDetails() {
 		gameDescription.style.display = "none";
 	}
 
-	if (Object.keys(currentGame).includes("details")) {
+	if (gameKeys.includes("details")) {
 		Object.keys(currentGame["details"]).forEach((key) => {
 			const detail = document.createElement("div");
 			detail.innerHTML = `
