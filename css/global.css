@@ -51,12 +51,12 @@
     transition:
         background var(--transition),
         background-color var(--transition),
+        border-color var(--transition),
         color var(--transition),
         transform var(--transition),
         opacity var(--transition),
         fill var(--transition),
-        stroke var(--transition),
-        border-color var(--transition);
+        stroke var(--transition);
 
     font-family: 'Montserrat', sans-serif;
     color: var(--text);
