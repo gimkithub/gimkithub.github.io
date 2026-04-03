@@ -136,6 +136,15 @@
     color: var(--text2);
 }
 
+.option-input p {
+    display: none;
+
+    position: absolute;
+    transform: translateY(-35px);
+
+    font-size: 0.8rem;
+}
+
 .option-input input::placeholder {
     color: var(--text3);
 }
