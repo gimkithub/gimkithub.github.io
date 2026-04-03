@@ -8,6 +8,7 @@ function autoCookies() {
 	setCookie("show-banners");
 	setCookie("theme", "dark");
 	setCookie("favorited-games", "[]");
+	setCookie("panic-site", "https://google.com/");
 }
 
 // Theme
@@ -50,22 +51,22 @@ function initMask() {
 // Panic Hotkey
 function initPanic() {
 	let escCount = 0;
-	let escTimer = null;
+	let escTimeout = null;
 
 	document.addEventListener("keydown", (input) => {
 		if (input.key !== "Escape" || localStorage.getItem("panic-toggle") == "false") return;
 
 		console.info("escape " + escCount);
 		escCount++;
-		clearTimeout(escTimer);
+		clearTimeout(escTimeout);
 
-		escTimer = setTimeout(() => {
+		escTimeout = setTimeout(() => {
 			escCount = 0;
 		}, 300);
 
 		if (escCount >= 3) {
 			console.warn("get sent slime");
-			document.location.href = "https://www.google.com/";
+			document.location.href = localStorage.getItem(panic-site);
 		}
 	});
 }

@@ -1,3 +1,6 @@
+// TODO: Move reused input code to a function sometime
+// TODO: Add ability to hide ads (when i even get to those)
+
 // Config
 const PRESETS = {
 	google: { title: "Google", icon: "https://google.com" },
@@ -8,11 +11,17 @@ const PRESETS = {
 	collegeboard: { title: "College Board", icon: "https://collegeboard.org" },
 };
 
-// Tab Presets
+// Helpers
 function getFavicon(url, size) {
 	return `https://www.google.com/s2/favicons?domain=${url}&sz=${size}`;
 }
 
+function isValid(url) {
+    const pattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*$/;
+    return pattern.test(url);
+}
+
+// Tab Presets
 function changeTab(title, favicon_url) {
 	if (title) {
 		document.title = title;
@@ -70,14 +79,14 @@ function buildPresets() {
 
 // Custom Tab Icon Masking
 function buildTabIcon() {
-	function isValid(url) {
-		const pattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*$/;
-		return pattern.test(url);
-	}
-
 	const urlInput = document.getElementById("tab-icon");
+    const inputWrapper = urlInput.parentElement;
 	const preview = document.getElementById("icon-preview");
 	const savedURL = localStorage.getItem("saved-tab-icon-url");
+    let statusTimeout = null;
+
+    const urlStatus = document.createElement("p");
+    inputWrapper.appendChild(urlStatus);
 
 	if (savedURL) {
 		urlInput.value = savedURL;
@@ -85,11 +94,30 @@ function buildTabIcon() {
 	}
 
 	urlInput.addEventListener("input", () => {
-		if (isValid(urlInput.value)) {
-			preview.src = getFavicon(urlInput.value, 64);
+        urlStatus.style.display = "block";
+        clearTimeout(statusTimeout);
 
+		if (isValid(urlInput.value)) {
+            urlStatus.textContent = "✔ Valid URL";
+            inputWrapper.classList.add("border-success");
+            inputWrapper.classList.remove("border-fail");
+            inputWrapper.classList.remove("border-caution");
+
+			preview.src = getFavicon(urlInput.value, 64);
 			changeTab(null, urlInput.value);
 		} else {
+            if (urlInput.value.trim() != "") {
+                urlStatus.textContent = "✖ Invalid URL";
+                inputWrapper.classList.add("border-fail");
+                inputWrapper.classList.remove("border-success");
+                inputWrapper.classList.remove("border-caution");
+            } else {
+                urlStatus.textContent = "⚠ URL Set to Default";
+                inputWrapper.classList.remove("border-fail");
+                inputWrapper.classList.remove("border-success");
+                inputWrapper.classList.add("border-caution");
+            }
+
 			const htmlFavicon = document.getElementById("dynamic-favicon");
 
 			preview.src = "";
@@ -97,6 +125,13 @@ function buildTabIcon() {
 			localStorage.setItem("saved-tab-icon-url", "");
 			localStorage.setItem("saved-tab-icon", "");
 		}
+
+        statusTimeout = setTimeout(() => {
+			urlStatus.style.display = "none";
+            urlStatus.textContent = "";
+            inputWrapper.classList.remove("border-success");
+            inputWrapper.classList.remove("border-fail");
+		}, 3000);
 	});
 };
 
@@ -154,6 +189,57 @@ function buildTheme() {
 	});
 };
 
+// Panic Button
+function buildPanic() {
+    const urlInput = document.getElementById("panic-site");
+    const inputWrapper = urlInput.parentElement;
+	const savedURL = localStorage.getItem("saved-panic-url");
+    let statusTimeout = null;
+
+    const urlStatus = document.createElement("p");
+    inputWrapper.appendChild(urlStatus);
+
+	if (savedURL) {
+		urlInput.value = savedURL;
+	}
+
+	urlInput.addEventListener("input", () => {
+        urlStatus.style.display = "block";
+        clearTimeout(statusTimeout);
+
+		if (isValid(urlInput.value)) {
+            urlStatus.textContent = "✔ Valid URL";
+            inputWrapper.classList.add("border-success");
+            inputWrapper.classList.remove("border-fail");
+            inputWrapper.classList.remove("border-caution");
+
+			localStorage.setItem("saved-panic-url", urlInput.value);
+		} else {
+            if (urlInput.value.trim() != "") {
+                urlStatus.textContent = "✖ Invalid URL";
+                inputWrapper.classList.add("border-fail");
+                inputWrapper.classList.remove("border-success");
+                inputWrapper.classList.remove("border-caution");
+            } else {
+                urlStatus.textContent = "⚠ URL Set to Default";
+                inputWrapper.classList.remove("border-fail");
+                inputWrapper.classList.remove("border-success");
+                inputWrapper.classList.add("border-caution");
+            }
+
+			localStorage.setItem("saved-panic-url", "https://google.com/");
+		}
+
+        statusTimeout = setTimeout(() => {
+			urlStatus.style.display = "none";
+            urlStatus.textContent = "";
+            inputWrapper.classList.remove("border-success");
+            inputWrapper.classList.remove("border-fail");
+            inputWrapper.classList.remove("border-caution");
+		}, 3000);
+	});
+}
+
 // Clear Recently Played
 function buildClearRecent() {
 	const clearBtn = document.getElementById("clear-history-btn");
@@ -167,16 +253,17 @@ function buildClearRecent() {
 };
 
 (function init() {
+    renderAdvanced();
+
     createToggle("panic-btn", "panic-toggle");
     createToggle("advanced-btn", "render-advanced", renderAdvanced);
-    createToggle("ad-btn", "show-banners");
-
-    renderAdvanced();
+    // createToggle("ad-btn", "show-banners");
 
     buildPresets();
     buildTabIcon();
     buildTabTitle();
     buildTheme();
+    buildPanic();
     buildClearRecent();
 })();
 
