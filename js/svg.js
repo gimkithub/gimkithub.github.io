@@ -35,7 +35,16 @@ const SHARE_SVG = `
 `;
 
 const MUTE_SVG = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 800 800" fill="var(--text)">
-        <path class="b" d="M374,471.6l-40,149.2c-7.4,27.6-41.9,36.9-62.2,16.7l-19.9-19.9-168,168c-19.2,19.2-50.3,19.2-69.5,0-19.2-19.2-19.2-50.3,0-69.5l168-168-19.9-19.9c-20.2-20.2-11-54.8,16.7-62.2l149.2-40c27.6-7.4,52.9,17.9,45.5,45.5Z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 800 900" fill="var(--text)" stroke="var(--text)" stroke-width="100" style="stroke-linecap:round;">
+        <line class="e" x1="50" y1="325" x2="50" y2="575"/>
+        <line class="e" x1="225" y1="212.5" x2="225" y2="687.5"/>
+        <line class="e" x1="400" y1="100" x2="400" y2="800"/>
+        <line class="e" x1="575" y1="212.5" x2="575" y2="687.5"/>
+        <line class="e" x1="750" y1="325" x2="750" y2="575"/>
+
+        <g class="d" id="mute-mask">
+            <line class="e" stroke="var(--bg)" stroke-width="225" x1="400" y1="100" x2="400" y2="800"/>
+            <line class="e" x1="400" y1="100" x2="400" y2="800"/>
+        </g>
     </svg>
 `;
