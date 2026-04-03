@@ -30,7 +30,9 @@ function addToolbarSVG(id, label = null) {
 	toolbar.append(wrapper);
 }
 
-function initShare() {
+function buildShare() {
+	addToolbarSVG("share", "Copy Game Link");
+
 	const shareBtn = document.getElementById("share");
 	const tooltip = document.getElementById("share-tooltip");
 
@@ -39,20 +41,22 @@ function initShare() {
 			navigator.clipboard.writeText(window.location.href);
 
 			tooltip.textContent = "Link Copied";
-            tooltip.classList.add("border-success");
+			tooltip.classList.add("border-success");
 		} catch (error) {
 			tooltip.textContent = "Copy Failed";
-            tooltip.classList.add("border-fail");
+			tooltip.classList.add("border-fail");
 		}
 
 		setTimeout(() => {
 			tooltip.textContent = "Copy Game Link";
-            tooltip.classList = "tooltip";
+			tooltip.classList = "tooltip";
 		}, 3000);
 	});
 }
 
-function initFavorite() {
+function buildFavorite() {
+	addToolbarSVG("favorite");
+
 	const heartBtn = document.getElementById("favorite");
 	const heartSVG = document.getElementById("heart_svg");
 
@@ -91,7 +95,34 @@ function initFavorite() {
 	});
 }
 
-function initFullscreen() {
+function buildMute() {
+	addToolbarSVG("mute", "Mute Player");
+
+	const muteBtn = document.getElementById("mute");
+	const muteMask = document.getElementById("mute-mask");
+	const player = document.getElementById("player");
+    const tooltip = document.getElementById("share-tooltip");
+
+    muteMask.style.transformOrigin = "center";
+
+	muteBtn.addEventListener("click", () => {
+		player.muted = !player.muted;
+
+		if (player.muted) {
+            muteMask.style.transform = "rotate(45deg)";
+            muteMask.style.stroke = "red";
+            tooltip.textContent = "Unmute Player";
+		} else {
+            muteMask.style.transform = "rotate(0deg)";
+            muteMask.style.stroke = "var(--text)";
+            tooltip.textContent = "Mute Player";
+		}
+	});
+}
+
+function buildFullscreen() {
+	addToolbarSVG("fullscreen");
+
 	const fullscreenBtn = document.getElementById("fullscreen");
 	const player = document.getElementById("player");
 
@@ -116,19 +147,45 @@ function loadGame() {
 	gameTitle.textContent = currentGame.gameName;
 }
 
+function loadDetails() {
+	const gameDescription = document.getElementById("game-description");
+	const gameDetails = document.getElementById("game-details");
+
+	if (Object.keys(currentGame).includes("description")) {
+		const description = document.createElement("p");
+		description.textContent = currentGame["description"];
+
+		gameDescription.append(description);
+	} else {
+		gameDescription.style.display = "none";
+	}
+
+	if (Object.keys(currentGame).includes("details")) {
+		Object.keys(currentGame["details"]).forEach((key) => {
+			const detail = document.createElement("div");
+			detail.innerHTML = `
+                <h4>${key}</h4>
+                <p>${currentGame["details"][key]}</p>
+            `;
+
+			gameDetails.append(detail);
+		});
+	} else {
+		gameDetails.style.display = "none";
+	}
+}
+
 // Initialize
 (async function init() {
 	games = await fetchGames();
 
 	loadGame();
+	loadDetails();
 
-	addToolbarSVG("share", "Copy Game Link");
-	addToolbarSVG("favorite");
-	addToolbarSVG("mute");
-	addToolbarSVG("fullscreen");
-	initShare();
-	initFavorite();
-	initFullscreen();
+	buildShare();
+	buildFavorite();
+	buildMute();
+	buildFullscreen();
 
 	addRandomGames(games);
 })();
