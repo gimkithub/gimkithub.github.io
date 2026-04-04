@@ -106,6 +106,16 @@ function buildFullscreen() {
 	});
 }
 
+function buildReport() {
+    addToolbarSVG("report", "Report This Game");
+
+    const reportBtn = document.getElementById("report");
+
+    reportBtn.addEventListener("click", () => {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSeRReCO_upcU9n9MAO6UGGLocosbUnv-SNAUACeN9l0OVKcEw/viewform?usp=pp_url&entry.1163355758=" + currentGame.gameName, "_blank");
+    })
+}
+
 // Game loading
 function loadGame() {
 	const player = document.getElementById("player");
@@ -167,6 +177,7 @@ function loadDetails() {
 	buildShare();
 	buildFavorite();
 	buildFullscreen();
+    buildReport();
 
 	addRandomGames(games);
 })();
