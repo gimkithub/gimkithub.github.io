@@ -140,7 +140,6 @@ function loadDetails() {
 
     if (!gameKeys.includes("description" && !gameKeys.includes("details"))) {
         infoButton.style.display = "none";
-        return;
     }
 
 	if (gameKeys.includes("description")) {
