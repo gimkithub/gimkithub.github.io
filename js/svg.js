@@ -33,18 +33,3 @@ const SHARE_SVG = `
         <polyline class="c" fill="none" stroke="var(--text)" stroke-width=100 points="610 125 125 400 610 675"/><circle class="b" cx="125" cy="400" r="125"/><circle class="b" cx="610" cy="125" r="125"/><circle class="b" cx="610" cy="675" r="125"/>
     </svg>
 `;
-
-const MUTE_SVG = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 800 900" fill="var(--text)" stroke="var(--text)" stroke-width="100" style="stroke-linecap:round;">
-        <line class="e" x1="50" y1="325" x2="50" y2="575"/>
-        <line class="e" x1="225" y1="212.5" x2="225" y2="687.5"/>
-        <line class="e" x1="400" y1="100" x2="400" y2="800"/>
-        <line class="e" x1="575" y1="212.5" x2="575" y2="687.5"/>
-        <line class="e" x1="750" y1="325" x2="750" y2="575"/>
-
-        <g class="d" id="mute-mask">
-            <line class="e" stroke="var(--bg)" stroke-width="225" x1="400" y1="100" x2="400" y2="800"/>
-            <line class="e" x1="400" y1="100" x2="400" y2="800"/>
-        </g>
-    </svg>
-`;

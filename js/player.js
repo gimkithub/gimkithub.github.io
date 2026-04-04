@@ -95,31 +95,6 @@ function buildFavorite() {
 	});
 }
 
-function buildMute() {
-	addToolbarSVG("mute", "Mute Player");
-
-	const muteBtn = document.getElementById("mute");
-	const muteMask = document.getElementById("mute-mask");
-	const player = document.getElementById("player");
-    const tooltip = document.getElementById("mute-tooltip");
-
-    muteMask.style.transformOrigin = "center";
-
-	muteBtn.addEventListener("click", () => {
-		player.muted = !player.muted;
-
-		if (player.muted) {
-            muteMask.style.transform = "rotate(45deg)";
-            muteMask.style.stroke = "red";
-            tooltip.textContent = "Unmute Player";
-		} else {
-            muteMask.style.transform = "rotate(0deg)";
-            muteMask.style.stroke = "var(--text)";
-            tooltip.textContent = "Mute Player";
-		}
-	});
-}
-
 function buildFullscreen() {
 	addToolbarSVG("fullscreen");
 
@@ -191,7 +166,6 @@ function loadDetails() {
 
 	buildShare();
 	buildFavorite();
-	buildMute();
 	buildFullscreen();
 
 	addRandomGames(games);
