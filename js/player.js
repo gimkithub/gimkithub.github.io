@@ -172,11 +172,11 @@ function loadDetails() {
 
 	loadGame();
 	loadDetails();
-
+    
 	buildShare();
+    buildReport();
 	buildFavorite();
 	buildFullscreen();
-    buildReport();
 
 	addRandomGames(games);
 })();
