@@ -138,7 +138,7 @@ function loadDetails() {
     const gameKeys = Object.keys(currentGame);
     const infoButton = document.getElementById("info-btn");
 
-    if (!gameKeys.includes("description" && !gameKeys.includes("details"))) {
+    if (!gameKeys.includes("description") && !gameKeys.includes("details")) {
         infoButton.style.display = "none";
     }
 
