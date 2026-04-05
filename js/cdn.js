@@ -13,7 +13,7 @@ async function fetchGames() {
 	const games_json = await fetch(`${CDN}list_games.json`);
 
     if (!games_json.ok) {
-        console.error(`${games_json.status}: ${games_json.statusText}`)
+        throw new Error(`${games_json.status}: ${games_json.statusText}`);
     }
 
 	return games_json.json();
